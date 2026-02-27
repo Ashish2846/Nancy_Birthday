@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>I Love You Nancy ❤️</title>
+
+<style>
+body{
+    margin:0;
+    padding:20px;
+    background:linear-gradient(135deg,#ff9a9e,#fad0c4,#fbc2eb);
+    font-family:'Segoe UI', sans-serif;
+    text-align:center;
+    color:white;
+    overflow:hidden;
+}
+
+/* Container */
+.container{
+    position:relative;
+    z-index:2;
+    max-width:700px;
+    margin:auto;
+}
+
+/* 3D TEXT EFFECT */
+.main-text{
+    font-size:clamp(28px,7vw,48px);
+    font-weight:bold;
+    background:linear-gradient(45deg,#e896b7,#ff4e88,#ff99cc);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    text-shadow:
+        2px 2px 0px #ff4e88,
+        4px 4px 0px #ff99cc,
+        6px 6px 15px rgba(0,0,0,0.3);
+    animation:floatText 3s ease-in-out infinite;
+}
+
+@keyframes floatText{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+}
+
+/* Paragraph 3D */
+.love-text{
+    font-size:clamp(16px,4vw,20px);
+    margin:18px 0;
+    text-shadow:2px 2px 8px rgba(0,0,0,0.4);
+}
+
+/* Floating elements */
+.floating{
+    position:fixed;
+    bottom:-50px;
+    animation:floatUp linear forwards;
+}
+
+@keyframes floatUp{
+    0%{transform:translateY(0);opacity:1;}
+    100%{transform:translateY(-110vh);opacity:0;}
+}
+
+/* Glitter */
+.glitter{
+    position:fixed;
+    width:6px;
+    height:6px;
+    background:white;
+    border-radius:50%;
+    animation:sparkle 2s infinite alternate;
+}
+
+@keyframes sparkle{
+    from{opacity:0.3;transform:scale(0.5);}
+    to{opacity:1;transform:scale(1.2);}
+}
+
+img{
+    width:220px;
+    margin-bottom:15px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<img src="https://media.tenor.com/cs49ldw3Rt4AAAAi/love.gif">
+
+<h1 class="main-text">I Love You Nancy ❤️</h1>
+
+<p class="love-text">Your smile is my favorite view in the world ✨</p>
+<p class="love-text">Your eyes shine brighter than the stars 🌟</p>
+<p class="love-text">I love your kindness and your beautiful heart 💕</p>
+<p class="love-text">You make my life brighter every single day 😘</p>
+<p class="love-text">I am the luckiest person to have you 💖</p>
+
+<h2 class="main-text">Happy Birthday My Love 🎂🎈</h2>
+
+</div>
+
+<script>
+/* Floating hearts & balloons */
+function createFloating(){
+const items=["💖","❤️","🎈","💗","🎉"];
+const el=document.createElement("div");
+el.classList.add("floating");
+el.innerText=items[Math.floor(Math.random()*items.length)];
+el.style.left=Math.random()*100+"vw";
+el.style.fontSize=(20+Math.random()*30)+"px";
+el.style.animationDuration=(4+Math.random()*4)+"s";
+document.body.appendChild(el);
+setTimeout(()=>el.remove(),8000);
+}
+setInterval(createFloating,500);
+
+/* Glitter */
+function createGlitter(){
+const g=document.createElement("div");
+g.classList.add("glitter");
+g.style.left=Math.random()*100+"vw";
+g.style.top=Math.random()*100+"vh";
+document.body.appendChild(g);
+setTimeout(()=>g.remove(),2000);
+}
+setInterval(createGlitter,150);
+</script>
+
+</body>
+</html>
